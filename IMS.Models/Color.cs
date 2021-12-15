@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace IMS.Model
+namespace IMS.Models
 {
     public class Color
     {
@@ -9,6 +9,6 @@ namespace IMS.Model
         public string Name { get; set; }
         public string RGB { get; set; }
 
-        public virtual ICollection<Color> Colors { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

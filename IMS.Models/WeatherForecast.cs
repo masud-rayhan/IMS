@@ -1,6 +1,6 @@
 using System;
 
-namespace IMS
+namespace IMS.Models
 {
     public class WeatherForecast
     {

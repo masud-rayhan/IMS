@@ -1,11 +1,17 @@
-﻿using IMS.Model;
+﻿using IMS.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace IMS.Data
+namespace IMS.DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions options):base(options)
+        
+        public ApplicationDbContext(DbContextOptions options) : base(options)
         {
 
         }
@@ -24,5 +30,6 @@ namespace IMS.Data
 
 
 
+        
     }
 }

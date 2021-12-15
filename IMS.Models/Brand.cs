@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace IMS.Model
+namespace IMS.Models
 {
     public class Brand
     {
