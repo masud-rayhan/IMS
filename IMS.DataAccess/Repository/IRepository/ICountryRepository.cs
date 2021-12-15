@@ -9,6 +9,6 @@ namespace IMS.DataAccess.Repository.IRepository
 {
     public interface ICountryRepository : IRepository<Country>
     {
-        void Update(Country country);
+        bool Update(Country country);
     }
 }

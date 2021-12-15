@@ -13,6 +13,7 @@ namespace IMS.DataAccess.Repository
     {
         private readonly ApplicationDbContext _db;
         public ICountryRepository Country { get; private set; }
+        public IBrandRepository Brand { get; private set; }
 
         
 
@@ -20,6 +21,8 @@ namespace IMS.DataAccess.Repository
         {
             _db = db;
             Country = new CountryRepository(_db);
+            Brand = new BrandRepository(_db);
+
 
 
         }

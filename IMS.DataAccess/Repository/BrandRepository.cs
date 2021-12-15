@@ -9,23 +9,24 @@ using System.Threading.Tasks;
 
 namespace IMS.DataAccess.Repository
 {
-    public class CountryRepository :Repository<Country>, ICountryRepository
+    public class BrandRepository :Repository<Brand> , IBrandRepository
     {
-
-
         private readonly ApplicationDbContext _db;
-        public CountryRepository(ApplicationDbContext db) :base(db)
+
+        public BrandRepository(ApplicationDbContext db) :base(db)
         {
             _db = db;
         }
 
-        public bool Update(Country country)
+        public bool Update(Brand brand)
         {
-            var obj=_db.Countries.FirstOrDefault(x => x.Id == country.Id);
+            var obj = _db.Brands.FirstOrDefault(x => x.Id == brand.Id);
             if(obj != null)
             {
-                obj.Name = country.Name;
-                obj.ShortName = country.ShortName;
+                obj.Name = brand.Name;
+                obj.CountryId = brand.CountryId;
+                
+
                 _db.SaveChanges();
 
                 return true;
@@ -35,5 +36,6 @@ namespace IMS.DataAccess.Repository
                 return false;
             }
         }
+
     }
 }

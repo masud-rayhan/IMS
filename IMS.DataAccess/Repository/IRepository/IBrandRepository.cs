@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace IMS.DataAccess.Repository.IRepository
 {
-    public interface IUnitOfWork :IDisposable
+    public interface IBrandRepository : IRepository<Brand>
     {
-        ICountryRepository Country { get;}
-        IBrandRepository Brand { get;}
-        void Save();
+        bool Update(Brand brand);
     }
 }
