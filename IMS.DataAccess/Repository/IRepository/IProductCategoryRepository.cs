@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace IMS.DataAccess.Repository.IRepository
 {
-    public interface IBrandRepository : IRepository<Brand>
+    public interface IProductCategoryRepository : IRepository<ProductCategory>
     {
-        
-        bool Update(Brand brand);
+        bool Update(ProductCategory productCategory);
     }
 }

@@ -9,7 +9,7 @@ namespace IMS.DataAccess.Repository.IRepository
 {
     public interface IRepository<T> where T : class
     {
-        T Get(int id);
+        T Get(Guid id);
 
 
         IEnumerable<T> GetAll(
@@ -25,9 +25,9 @@ namespace IMS.DataAccess.Repository.IRepository
             );
 
 
-        void Add(T entity);
-        void Remove(int id);
-        void Remove(T entity);
-        void RemoveRange(IEnumerable<T> entity);
+        bool Add(T entity);
+        bool Remove(Guid id);
+        bool Remove(T entity);
+        bool RemoveRange(IEnumerable<T> entity);
     }
 }

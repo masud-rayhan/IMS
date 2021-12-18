@@ -21,12 +21,20 @@ namespace IMS.DataAccess.Repository
             this.dbSet = _db.Set<T>();
         }
 
-        public void Add(T entity)
+        public bool Add(T entity)
         {
-            dbSet.Add(entity);
+            try
+            {
+                dbSet.Add(entity);
+                return true;
+            }catch(Exception ex)
+            {
+                return false;
+            }
+            
         }
 
-        public T Get(int id)
+        public T Get(Guid id)
         {
             return dbSet.Find(id);
         }
@@ -72,20 +80,46 @@ namespace IMS.DataAccess.Repository
             return query.FirstOrDefault();
         }
 
-        public void Remove(int id)
+
+        public bool Remove(Guid id)
         {
-            T entity = dbSet.Find(id);
-            Remove(entity);
+            try
+            {
+                T entity = dbSet.Find(id);
+                Remove(entity);
+
+                return true;
+
+            }catch (Exception ex)
+            {
+                return false;
+            }
         }
 
-        public void Remove(T entity)
+        public bool Remove(T entity)
         {
-            dbSet.Remove(entity);
+            try
+            {
+                dbSet.Remove(entity);
+                return true ;
+
+            }catch (Exception ex)
+            {
+                return false ;
+            }
         }
 
-        public void RemoveRange(IEnumerable<T> entity)
+        public bool RemoveRange(IEnumerable<T> entity)
         {
-            dbSet.RemoveRange(entity);
+            try
+            {
+                dbSet.RemoveRange(entity);
+                return true;
+
+            }catch(Exception ex)
+            {
+                return false;
+            }
         }
     }
     

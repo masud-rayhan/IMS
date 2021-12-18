@@ -18,7 +18,7 @@ namespace IMS.Models
         public double OtherCost { get; set; }
         public double TotalCost { get; set; }
         public double CostPerProduct { get; set; }
-        public double paid { get; set; }
+        public double Paid { get; set; }
         public double Due { get; set; }
         public string ChallanNumber { get; set; }
 

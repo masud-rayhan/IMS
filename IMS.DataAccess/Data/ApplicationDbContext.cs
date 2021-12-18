@@ -27,6 +27,7 @@ namespace IMS.DataAccess.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Sell> Sells { get; set; }
         public DbSet<Purchase> Purchases { get; set; }
+        public DbSet<Color> Colors { get; set; }
 
 
 

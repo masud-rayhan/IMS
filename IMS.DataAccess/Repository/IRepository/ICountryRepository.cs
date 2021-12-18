@@ -9,6 +9,8 @@ namespace IMS.DataAccess.Repository.IRepository
 {
     public interface ICountryRepository : IRepository<Country>
     {
+        new bool Remove(Guid id);
+        bool IsDeletable(Guid id);
         bool Update(Country country);
     }
 }

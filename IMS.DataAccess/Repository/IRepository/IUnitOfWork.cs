@@ -9,8 +9,19 @@ namespace IMS.DataAccess.Repository.IRepository
 {
     public interface IUnitOfWork :IDisposable
     {
+        IBrandRepository Brand { get; }
+        IColorRepository Color { get; }
         ICountryRepository Country { get;}
-        IBrandRepository Brand { get;}
-        void Save();
+        ICustomerRepository Customer { get; }
+        IDesignationRepositoy Designation { get; }
+        IProductRepository Product { get;}
+        IProductCategoryRepository ProductCategory { get; }
+        IPurchaseRepository Purchase { get; }
+        ISellRepository Sell { get; }
+        ISupplierRepository Supplier { get; }
+        IEmployeeRepository Employee { get;}
+        IMeasurementUnitRepository MeasurementUnit { get;}
+        
+        bool Save();
     }
 }

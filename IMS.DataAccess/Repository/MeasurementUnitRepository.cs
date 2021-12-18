@@ -9,22 +9,22 @@ using System.Threading.Tasks;
 
 namespace IMS.DataAccess.Repository
 {
-    public class CountryRepository :Repository<Country>, ICountryRepository
+    public class MeasurementUnitRepository : Repository<MeasurementUnit> ,IMeasurementUnitRepository
     {
-
-
         private readonly ApplicationDbContext _db;
-        public CountryRepository(ApplicationDbContext db) :base(db)
+
+        public MeasurementUnitRepository(ApplicationDbContext db):base(db)
         {
-            _db = db;
+            _db= db;
         }
-        public bool Update(Country country)
+
+        public bool Update(MeasurementUnit measurementUnit)
         {
-            var obj = _db.Countries.FirstOrDefault(x => x.Id == country.Id);
+            var obj = _db.MeasurementUnits.FirstOrDefault(x => x.Id == measurementUnit.Id);
             if (obj != null)
             {
-                obj.Name = country.Name;
-                obj.ShortName = country.ShortName;
+                obj.UnitName = measurementUnit.UnitName;
+
                 _db.SaveChanges();
 
                 return true;
@@ -35,31 +35,24 @@ namespace IMS.DataAccess.Repository
             }
         }
 
-
+        public bool IsDeletable(Guid id)
+        {
+            return _db.Products.Where(x => x.MeasurementUnitId == id).Any();
+        }
 
         public new bool Remove(Guid id)
         {
             try
             {
-                var obj = _db.Countries.Where(x => x.Id == id).FirstOrDefault();
-                
-                 _db.Countries.Remove(obj);
+                var obj = _db.MeasurementUnits.Where(x =>x.Id==id).FirstOrDefault();
+                _db.MeasurementUnits.Remove(obj);
+
                 return true;
-               
-                
+
             }catch (Exception ex)
             {
                 return false;
             }
-            
-
-
         }
-
-        public bool IsDeletable(Guid id)
-        {
-            return  _db.Brands.Where( x=> x.CountryId==id).Any(); 
-        }
-
     }
 }

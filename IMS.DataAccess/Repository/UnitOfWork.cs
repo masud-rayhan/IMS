@@ -14,6 +14,17 @@ namespace IMS.DataAccess.Repository
         private readonly ApplicationDbContext _db;
         public ICountryRepository Country { get; private set; }
         public IBrandRepository Brand { get; private set; }
+        public IColorRepository Color { get; private set; }
+        public ICustomerRepository Customer { get; private set; }
+        public IDesignationRepositoy Designation { get; private set; }
+        public IEmployeeRepository Employee { get; private set; }
+        public IMeasurementUnitRepository MeasurementUnit { get; private set; }
+        public IProductRepository Product { get; private set; }
+        public IProductCategoryRepository ProductCategory { get; private set; }
+        public IPurchaseRepository Purchase { get; private set; }
+        public ISellRepository Sell { get; private set; }
+        public ISupplierRepository Supplier { get; private set; }
+         
 
         
 
@@ -22,6 +33,7 @@ namespace IMS.DataAccess.Repository
             _db = db;
             Country = new CountryRepository(_db);
             Brand = new BrandRepository(_db);
+            Color = new ColorRepository(_db);
 
 
 
@@ -32,9 +44,17 @@ namespace IMS.DataAccess.Repository
             _db.Dispose();
         }
 
-        public void Save()
+        public bool Save()
         {
-            _db.SaveChanges();
+            try
+            {
+                _db.SaveChanges();
+                return true;
+
+            }catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

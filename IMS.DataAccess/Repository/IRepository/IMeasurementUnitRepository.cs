@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace IMS.DataAccess.Repository.IRepository
 {
-    public interface IBrandRepository : IRepository<Brand>
+    public interface IMeasurementUnitRepository : IRepository<MeasurementUnit>
     {
-        
-        bool Update(Brand brand);
+        new bool Remove(Guid id);
+        bool IsDeletable(Guid id);
+        bool Update(MeasurementUnit measurementUnit);
     }
 }
