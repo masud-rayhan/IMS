@@ -51,5 +51,25 @@ namespace IMS.DataAccess.Repository
                 return false;
             }
         }
+
+        public bool IsDeletable(Guid id)
+        {
+            return true;
+        }
+
+        public new bool Remove(Guid id)
+        {
+            try
+            {
+                var obj= _db.Purchases.Where(x => x.Id == id).FirstOrDefault();
+                _db.Purchases.Remove(obj);
+                _db.SaveChanges();
+                return true;
+
+            }catch (Exception ex)
+            {
+                return false;
+            }
+        }
     }
 }

@@ -26,6 +26,7 @@ namespace IMS.DataAccess.Repository
             try
             {
                 dbSet.Add(entity);
+                
                 return true;
             }catch(Exception ex)
             {

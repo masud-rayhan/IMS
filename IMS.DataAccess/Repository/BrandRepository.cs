@@ -37,5 +37,25 @@ namespace IMS.DataAccess.Repository
             }
         }
 
+        public bool IsDeletable(Guid id)
+        {
+            return !_db.Products.Where(x => x.ProductCategoryId == id).Any();
+        }
+
+        new bool Remove(Guid id)
+        {
+            try
+            {
+                var obj = _db.Brands.Where(x => x.Id == id).FirstOrDefault();
+                _db.Brands.Remove(obj);
+                _db.SaveChanges();
+                return true;
+            }catch (Exception ex)
+            {
+                return false;
+            }
+
+        }
+
     }
 }

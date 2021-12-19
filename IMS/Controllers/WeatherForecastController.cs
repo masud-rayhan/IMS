@@ -36,5 +36,11 @@ namespace IMS.Controllers
             })
             .ToArray();
         }
+
+        [HttpPost("Hello")]
+        public IActionResult Hi(Country country)
+        {
+            return Ok(new { val = "Hello", obj = country });
+        }
     }
 }

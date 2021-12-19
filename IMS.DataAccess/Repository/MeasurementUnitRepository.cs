@@ -37,7 +37,7 @@ namespace IMS.DataAccess.Repository
 
         public bool IsDeletable(Guid id)
         {
-            return _db.Products.Where(x => x.MeasurementUnitId == id).Any();
+            return !_db.Products.Where(x => x.MeasurementUnitId == id).Any();
         }
 
         public new bool Remove(Guid id)

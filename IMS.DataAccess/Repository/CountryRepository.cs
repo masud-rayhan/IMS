@@ -58,7 +58,7 @@ namespace IMS.DataAccess.Repository
 
         public bool IsDeletable(Guid id)
         {
-            return  _db.Brands.Where( x=> x.CountryId==id).Any(); 
+            return  !_db.Brands.Where( x=> x.CountryId==id).Any(); 
         }
 
     }

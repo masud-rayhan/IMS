@@ -9,6 +9,8 @@ namespace IMS.DataAccess.Repository.IRepository
 {
     public interface IDesignationRepositoy : IRepository<Designation>
     {
+        new bool Remove(Guid id);
+        bool IsDeletable(Guid id);
         bool Update(Designation designation);
     }
 }
